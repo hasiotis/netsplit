@@ -3,7 +3,7 @@
 Here is a very simply network plan:
 ```
 [netsplit]
-  description = "Global / Cloud / Environment / Subnet"
+  description = "Global / Subnet"
   network = "192.168.0.0/24"
 
 [plan]
