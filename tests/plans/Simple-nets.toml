@@ -1,0 +1,6 @@
+[netsplit]
+  network = "192.168.0.0/24"
+
+[plan]
+  options = { slots = 4 }
+  members = ["NetA", "NetB"]
