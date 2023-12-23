@@ -1,0 +1,32 @@
+[netsplit]
+  description = "Global / Cloud / Environment / Subnet"
+  network = "10.0.0.0/8"
+
+[plan]
+  options = { slots = 8 }
+
+[plan.members]
+  [plan.members.aws]
+  options = { index = 3, extend = 1, slots = 4 }
+
+    [plan.members.aws.members]
+      [plan.members.aws.members.production]
+      options = { extend = 1, slots = 8 }
+      members = ["Lan1", "Lan2", "Lan3"]
+
+      [plan.members.aws.members.staging]
+      options = { extend = 1, slots = 16 }
+      members = ["Lan1", "Lan2", "Lan3"]
+
+
+  [plan.members.gcp]
+  options = { slots = 4 }
+
+    [plan.members.gcp.members]
+      [plan.members.gcp.members.production]
+      options = { extend = 1, slots = 8 }
+      members = ["Lan1", "Lan2", "Lan3", "Lan4"]
+
+      [plan.members.gcp.members.staging]
+      options = { extend = 1, slots = 16 }
+      members = ["Lan1", "Lan2", "Lan3", "Lan4"]

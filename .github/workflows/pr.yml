@@ -1,0 +1,41 @@
+name: Pull Request
+run-name: Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'poetry'
+
+      - name: Install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run unit tests
+        run: poetry run python -m pytest tests --junitxml=report.xml
+
+      - name: Unit Test Results
+        if: success() || failure()
+        uses: dorny/test-reporter@v1
+        with:
+          name: unit-tests-results
+          path: report.xml
+          reporter: java-junit
