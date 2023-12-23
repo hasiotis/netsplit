@@ -75,7 +75,7 @@ def get_subnets(name, space, net, level=0, index=0, extend=0, slots=1):
 
 
 def pprint_plan(options, prefixes, max_level, keyword, reserved):
-    console = Console(force_terminal=True)
+    console = Console()
 
     t = Table(show_header=True, header_style="bold magenta", box=box.MINIMAL)
     t.add_column(" #", justify="right")

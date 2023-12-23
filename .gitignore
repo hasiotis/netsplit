@@ -1,0 +1,7 @@
+*.egg-info/
+build/
+dist/
+docs/_build
+results.xml
+.envrc
+.coverage
