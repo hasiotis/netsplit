@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "netsplit"
-version = "0.3.0"
+version = "0.3.2"
 description = "Netsplit can help slice and dice your IP space"
 authors = ["Nikos Chasiotis <hasiotis@gmail.com>"]
 readme = "README.md"
