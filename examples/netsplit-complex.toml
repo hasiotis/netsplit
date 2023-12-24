@@ -1,0 +1,43 @@
+[netsplit]
+  description = "Global / Cloud / VPC / Net"
+  network = "10.8.0.0/16"
+
+[plan]
+  options = { slots = 4 }
+
+[plan.members]
+  [plan.members.cloud01]
+  options = { index = 2, slots = 4 }
+
+    [plan.members.cloud01.members]
+      [plan.members.cloud01.members.vpc01]
+      options = { extend = 1, slots = 4 }
+      members = ["Net1", "Net2", "Net3"]
+
+      [plan.members.cloud01.members.vpc02]
+      options = { slots = 4 }
+      members = ["Net1", "Net2", "Net3"]
+
+  [plan.members.cloud02]
+  options = { slots = 4 }
+
+    [plan.members.cloud02.members]
+      [plan.members.cloud02.members.vpc01]
+      options = { slots = 4 }
+      members = ["Net1", "Net2", "Net3"]
+
+      [plan.members.cloud02.members.vpc02]
+      options = { slots = 4 }
+      members = ["Net1", "Net2", "Net3"]
+
+  [plan.members.cloud03]
+  options = { slots = 8 }
+
+    [plan.members.cloud03.members]
+      [plan.members.cloud03.members.vpc01]
+      options = { extend = 2, slots = 4 }
+      members = ["Net1", "Net2", "Net3"]
+
+      [plan.members.cloud03.members.vpc02]
+      options = { extend = 1, slots = 2 }
+      members = ["Net1", "Net2"]

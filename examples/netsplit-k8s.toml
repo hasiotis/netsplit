@@ -1,0 +1,59 @@
+[netsplit]
+  description = "Root / Cluster"
+  network = "192.168.0.0/16"
+
+[plan]
+  options = { slots = 4 }
+
+[plan.members]
+  [plan.members.cluster01]
+  options = { slots = 16 }
+
+    [plan.members.cluster01.members]
+      [plan.members.cluster01.members.control]
+      options = { slots = 1 }
+
+      [plan.members.cluster01.members.pods]
+      options = { extend = 3, slots = 1 }
+
+      [plan.members.cluster01.members.services]
+      options = { extend = 1, slots = 1 }
+
+  [plan.members.cluster02]
+  options = { slots = 16 }
+
+    [plan.members.cluster02.members]
+      [plan.members.cluster02.members.control]
+      options = { slots = 1 }
+
+      [plan.members.cluster02.members.pods]
+      options = { extend = 3, slots = 1 }
+
+      [plan.members.cluster02.members.services]
+      options = { extend = 1, slots = 1 }
+
+  [plan.members.cluster03]
+  options = { slots = 16 }
+
+    [plan.members.cluster03.members]
+      [plan.members.cluster03.members.control]
+      options = { slots = 1 }
+
+      [plan.members.cluster03.members.pods]
+      options = { extend = 3, slots = 1 }
+
+      [plan.members.cluster03.members.services]
+      options = { extend = 1, slots = 1 }
+
+  [plan.members.cluster04]
+  options = { slots = 16 }
+
+    [plan.members.cluster04.members]
+      [plan.members.cluster04.members.control]
+      options = { slots = 1 }
+
+      [plan.members.cluster04.members.pods]
+      options = { extend = 3, slots = 1 }
+
+      [plan.members.cluster04.members.services]
+      options = { extend = 1, slots = 1 }

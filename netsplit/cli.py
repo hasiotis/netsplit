@@ -81,7 +81,7 @@ def pprint_plan(options, prefixes, max_level, keyword, reserved):
     t.add_column(" #", justify="right")
     t.add_column(options["description"])
     t.add_column("Subnet")
-    t.add_column("idx+ext/slots", justify="right")
+    t.add_column("idx/slots", justify="right")
     t.add_column("IPs", justify="right")
 
     for p in prefixes:
@@ -98,9 +98,9 @@ def pprint_plan(options, prefixes, max_level, keyword, reserved):
             index_value = ""
             if p['slots'] != 1:
                 if p['extend'] == 0:
-                    index_value = f"{p['index']:3}     / {p['slots']:3}"
+                    index_value = f"{p['index']:3}      / {p['slots']:3}"
                 else:
-                    index_value = f"{p['index']:3} + {p['extend']} / {p['slots']:3}"
+                    index_value = f"{p['index']:3} → {p['index']+2**p['extend']-1:2} / {p['slots']:3}"
 
             t.add_row(
                 f"{STYLE}{RESERVED}{p['level']}",

@@ -7,7 +7,7 @@
 
 [plan.members]
   [plan.members.aws]
-  options = { index = 3, extend = 1, slots = 4 }
+  options = { index = 3, extend = 2, slots = 4 }
 
     [plan.members.aws.members]
       [plan.members.aws.members.production]
