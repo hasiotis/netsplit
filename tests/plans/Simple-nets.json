@@ -1,0 +1,7 @@
+[
+    { "level": 0, "slots": 1, "index": 0, "extend": 0, "name": "Simple-nets",            "prefix": { "py/reduce": [ { "py/type": "ipaddress.IPv4Network" }, { "py/tuple": [ "192.168.0.0/24" ] } ] } },
+    { "level": 1, "slots": 4, "index": 1, "extend": 0, "name": "Simple-nets / NetA",     "prefix": { "py/reduce": [ { "py/type": "ipaddress.IPv4Network" }, { "py/tuple": [ "192.168.0.0/26" ] } ] } },
+    { "level": 1, "slots": 4, "index": 2, "extend": 0, "name": "Simple-nets / NetB",     "prefix": { "py/reduce": [ { "py/type": "ipaddress.IPv4Network" }, { "py/tuple": [ "192.168.0.64/26" ] } ] } },
+    { "level": 1, "slots": 4, "index": 3, "extend": 0, "name": "Simple-nets / RESERVED", "prefix": { "py/reduce": [ { "py/type": "ipaddress.IPv4Network" }, { "py/tuple": [ "192.168.0.128/26" ] } ] } },
+    { "level": 1, "slots": 4, "index": 4, "extend": 0, "name": "Simple-nets / RESERVED", "prefix": { "py/reduce": [ { "py/type": "ipaddress.IPv4Network" }, { "py/tuple": [ "192.168.0.192/26" ] } ] } }
+]

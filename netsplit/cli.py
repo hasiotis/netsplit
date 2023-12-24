@@ -47,7 +47,7 @@ def get_subnets(name, space, net, level=0, index=0, extend=0, slots=1):
                 slot_meta[found_index-1] = m
                 for i in range(1, 2**found_extend):
                     slot_meta[found_index-1+i] = "SKIP"
-                count += found_index + 2**found_extend
+                count += found_index + 2**found_extend - 1
             else:
                 slot_meta[count] = m
                 for i in range(1, 2**found_extend):
