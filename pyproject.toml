@@ -19,10 +19,19 @@ netsplit = 'netsplit.cli:cli'
 pre-commit = "^3.6.0"
 pytest = "^7.4.3"
 jsonpickle = "^3.0.2"
+commitizen = "^3.13.0"
 
 [tool.pytest.ini_options]
 addopts = "-ra -q"
 
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "poetry"
+update_changelog_on_bump = true
+major_version_zero = true
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
