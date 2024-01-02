@@ -40,3 +40,7 @@ We can render it with:
 Make sure to check examples for complex network plans:
 
 ![Multicloud Plan](/examples/img/netsplit-multicloud.png)
+
+# Similar projects:
+
+* [Visual Subnet Calculator](https://github.com/ckabalan/visualsubnetcalc)
