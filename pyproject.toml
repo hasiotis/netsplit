@@ -7,10 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-click = "^8.1.3"
 tomli = "^2.0.1"
 ipaddress = "^1.0.23"
 rich = "^13.7.0"
+click = "^8.0"
 
 [tool.poetry.scripts]
 netsplit = 'netsplit.cli:cli'
@@ -24,7 +24,6 @@ commitizen = "^3.13.0"
 [tool.pytest.ini_options]
 addopts = "-ra -q"
 
-
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "v$version"
@@ -32,6 +31,7 @@ version_scheme = "semver"
 version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
