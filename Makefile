@@ -5,8 +5,13 @@ help:
 
 .PHONY: init ## Initialize for development
 init:
-	@poetry install
-	@poetry run pre-commit install
+	@uv sync
+	@uv run prek install
+
+
+.PHONY: test ## Run tests
+test:
+	@uv run pytest
 
 
 .PHONY: clean ## Cleanup generated files
@@ -17,9 +22,9 @@ clean:
 
 .PHONY: release  ## Make release
 release:
-	cz bump;
-	VERSION=`poetry version -s`;                          \
+	uv run cz bump;
+	VERSION=`uv version --short`;                       \
 	git push;                                             \
 	git tag -a v$$VERSION -m "Tagged version $$VERSION";  \
 	git push --tags;                                      \
-	poetry publish -n --build -u __token__ -p ${POETRY_PYPI_TOKEN_PYPI}
+	uv build --clear && uv publish --token ${UV_PUBLISH_TOKEN}

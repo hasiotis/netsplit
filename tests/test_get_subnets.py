@@ -25,7 +25,7 @@ def test_plans():
         jsonfile = plan.replace('toml', 'json')
         if Path(jsonfile).exists():
             with open(jsonfile, "rb") as f:
-                result = jsonpickle.decode(f.read())
+                result = jsonpickle.decode(f.read(), keys=True)
         else:   # Here is our trick to autogenerate the expected output
             frozen = jsonpickle.encode(networks)
             with open(jsonfile, "w") as f:

@@ -22,20 +22,17 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Install poetry
-        run: curl -sSL https://install.python-poetry.org | python3 -
-
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
         with:
           python-version: '3.10'
-          cache: 'poetry'
+          enable-cache: true
 
       - name: Install dependencies
-        run: poetry install
+        run: uv sync --locked
 
       - name: Run unit tests
-        run: poetry run python -m pytest tests --junitxml=report.xml
+        run: uv run python -m pytest tests --junitxml=report.xml
 
       - name: Unit Test Results
         if: success() || failure()

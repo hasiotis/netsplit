@@ -1,25 +1,27 @@
-[tool.poetry]
+[project]
 name = "netsplit"
 version = "0.3.7"
 description = "Netsplit can help slice and dice your IP space"
-authors = ["Nikos Chasiotis <hasiotis@gmail.com>"]
+authors = [{ name = "Nikos Chasiotis", email = "hasiotis@gmail.com" }]
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "tomli>=2.0.1,<3",
+    "ipaddress>=1.0.23,<2",
+    "rich>=15.0.0,<16",
+    "click>=8.0,<9",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-tomli = "^2.0.1"
-ipaddress = "^1.0.23"
-rich = "^13.7.0"
-click = "^8.0"
+[project.scripts]
+netsplit = "netsplit.cli:cli"
 
-[tool.poetry.scripts]
-netsplit = 'netsplit.cli:cli'
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^3.6.0"
-pytest = "^7.4.3"
-jsonpickle = "^3.0.2"
-commitizen = "^3.13.0"
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1,<10",
+    "jsonpickle>=4.1.2,<5",
+    "commitizen>=4.2,<5",
+    "prek>=0.5.4,<0.6",
+]
 
 [tool.pytest.ini_options]
 addopts = "-ra -q"
@@ -28,10 +30,13 @@ addopts = "-ra -q"
 name = "cz_conventional_commits"
 tag_format = "v$version"
 version_scheme = "semver"
-version_provider = "poetry"
+version_provider = "uv"
 update_changelog_on_bump = true
 major_version_zero = true
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+exclude = [".claude", ".github"]
