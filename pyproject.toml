@@ -1,6 +1,6 @@
 [project]
 name = "netsplit"
-version = "0.3.8"
+version = "0.3.9"
 description = "Netsplit can help slice and dice your IP space"
 authors = [{ name = "Nikos Chasiotis", email = "hasiotis@gmail.com" }]
 readme = "README.md"
